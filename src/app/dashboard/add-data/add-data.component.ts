@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, OnDestroy, OnInit } from '@angular/core';
 import {
   AbstractControl,
   FormBuilder,
@@ -6,21 +6,26 @@ import {
   ValidatorFn,
   Validators,
 } from '@angular/forms';
-import { BackendService } from 'src/app/shared/backend.service';
-import { StoreService } from 'src/app/shared/store.service';
+import { BackendService } from 'src/app/shared/services/backend.service';
+import { StoreService } from 'src/app/shared/services/store.service';
+import { MatDialog } from '@angular/material/dialog';
+import { ConfirmationDialogComponent } from '../../shared/components/confirmation-dialog/confirmation-dialog.component';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-add-data',
   templateUrl: './add-data.component.html',
   styleUrls: ['./add-data.component.scss'],
 })
-export class AddDataComponent implements OnInit {
+export class AddDataComponent implements OnInit, OnDestroy {
   errorMessages: { [key: string]: string } = {};
+  subscription: Subscription = new Subscription();
 
   constructor(
     private fb: FormBuilder,
     public storeService: StoreService,
     public backendService: BackendService,
+    private dialog: MatDialog,
   ) {}
 
   public addChildForm: any;
@@ -59,11 +64,16 @@ export class AddDataComponent implements OnInit {
 
   onSubmit() {
     if (this.addChildForm.valid) {
-      this.backendService.addChildData(
-        this.addChildForm.value,
-        this.currentPage,
-      );
-      this.resetForm();
+      const dialogRef = this.dialog.open(ConfirmationDialogComponent);
+      this.subscription = dialogRef.afterClosed().subscribe((result) => {
+        if (result) {
+          this.backendService.addChildData(
+            this.addChildForm.value,
+            this.currentPage,
+          );
+          this.resetForm();
+        }
+      });
     }
   }
 
@@ -111,5 +121,9 @@ export class AddDataComponent implements OnInit {
       errorCheck('birthDate', 'Das Kind muss zwischen 3 und 6 Jahre alt sein');
 
     return this.errorMessages[controlName];
+  }
+
+  ngOnDestroy(): void {
+    this.subscription.unsubscribe();
   }
 }

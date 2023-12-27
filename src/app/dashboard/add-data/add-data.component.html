@@ -14,6 +14,7 @@
         >{{ getErrorMessage("birthDate") }}
       </mat-error>
       <mat-datepicker-toggle
+        matTooltip="Das Kind muss zwischen 3 und 6 Jahre alt sein"
         matIconSuffix
         [for]="picker"
       ></mat-datepicker-toggle>
@@ -44,5 +45,6 @@
     >
       Erfassen
     </button>
+    <p>* gekennzeichnete Felder sind Pflichtfelder</p>
   </div>
 </form>

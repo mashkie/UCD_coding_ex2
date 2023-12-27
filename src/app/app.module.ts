@@ -25,6 +25,11 @@ import { MatTableModule } from '@angular/material/table';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { MatMenuModule } from '@angular/material/menu';
+import { MatToolbarModule } from '@angular/material/toolbar';
+import { MatIconModule } from '@angular/material/icon';
+import { MatDialogModule } from '@angular/material/dialog';
+import { ConfirmationDialogComponent } from './shared/components/confirmation-dialog/confirmation-dialog.component';
+import { MatTooltipModule } from '@angular/material/tooltip';
 
 @NgModule({
   declarations: [
@@ -35,6 +40,7 @@ import { MatMenuModule } from '@angular/material/menu';
     HeaderComponent,
     ButtonComponent,
     PaginationPipe,
+    ConfirmationDialogComponent,
   ],
   imports: [
     BrowserModule,
@@ -54,6 +60,10 @@ import { MatMenuModule } from '@angular/material/menu';
     MatSnackBarModule,
     MatProgressSpinnerModule,
     MatMenuModule,
+    MatToolbarModule,
+    MatIconModule,
+    MatDialogModule,
+    MatTooltipModule,
   ],
   providers: [{ provide: MAT_DATE_LOCALE, useValue: 'de-DE' }],
   bootstrap: [AppComponent],

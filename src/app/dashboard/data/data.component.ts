@@ -1,19 +1,25 @@
-import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
-import { BackendService } from 'src/app/shared/backend.service';
+import {
+  Component,
+  EventEmitter,
+  Input,
+  OnDestroy,
+  OnInit,
+  Output,
+} from '@angular/core';
+import { BackendService } from 'src/app/shared/services/backend.service';
 import { CHILDREN_PER_PAGE } from 'src/app/shared/constants';
-import { StoreService } from 'src/app/shared/store.service';
+import { StoreService } from 'src/app/shared/services/store.service';
 import { PageEvent } from '@angular/material/paginator';
+import { MatDialog } from '@angular/material/dialog';
+import { ConfirmationDialogComponent } from '../../shared/components/confirmation-dialog/confirmation-dialog.component';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-data',
   templateUrl: './data.component.html',
   styleUrls: ['./data.component.scss'],
 })
-export class DataComponent implements OnInit {
-  constructor(
-    public storeService: StoreService,
-    private backendService: BackendService,
-  ) {}
+export class DataComponent implements OnInit, OnDestroy {
   @Input() currentPage!: number;
   @Output() selectPageEvent = new EventEmitter<number>();
   displayedColumns: string[] = [
@@ -29,6 +35,13 @@ export class DataComponent implements OnInit {
   length: number = 0;
   pageSize: number = CHILDREN_PER_PAGE;
   pageIndex = 0;
+  subscription: Subscription = new Subscription();
+
+  constructor(
+    public storeService: StoreService,
+    private backendService: BackendService,
+    private dialog: MatDialog,
+  ) {}
 
   ngOnInit(): void {
     this.backendService.getChildren(this.currentPage);
@@ -66,6 +79,20 @@ export class DataComponent implements OnInit {
   }
 
   public cancelRegistration(childId: string) {
-    this.backendService.deleteChildData(childId, this.currentPage);
+    this.dialog.open(ConfirmationDialogComponent);
+    const dialogRef = this.dialog.open(ConfirmationDialogComponent);
+
+    this.subscription = dialogRef.afterClosed().subscribe((result) => {
+      if (result) {
+        this.backendService.deleteChildData(childId, this.currentPage);
+        this.dialog.closeAll();
+      } else {
+        this.dialog.closeAll();
+      }
+    });
+  }
+
+  ngOnDestroy() {
+    this.subscription.unsubscribe();
   }
 }

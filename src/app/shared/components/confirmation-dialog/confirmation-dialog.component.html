@@ -1,0 +1,9 @@
+<h2 mat-dialog-title>Achtung!</h2>
+<mat-dialog-content class="mat-typography">
+  <p>Die folgende Aktion kann nicht mehr rückgängig gemacht werden!</p>
+  <p>Sind Sie sicher das Sie diese Aktion durchführen wollen?</p>
+</mat-dialog-content>
+<mat-dialog-actions align="end">
+  <button mat-button mat-dialog-close>Abbruch</button>
+  <button mat-button [mat-dialog-close]="true" cdkFocusInitial>Ok</button>
+</mat-dialog-actions>
