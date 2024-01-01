@@ -87,4 +87,23 @@ export class BackendService {
         },
       });
   }
+
+  getChildrenByKindergardenId(kindergardenId: string) {
+    return this.http
+      .get<ChildResponse[]>(
+        `http://localhost:5000/childs?_expand=kindergarden&kindergardenId=${kindergardenId}`,
+        { observe: 'response' },
+      )
+      .pipe(tap(() => (this.storeService.isLoading = true)))
+      .subscribe({
+        next: (data) => {
+          console.log(data);
+          this.storeService.isLoading = false;
+          this.storeService.children = data.body!;
+        },
+        error: (error) => {
+          this.snackbarService.openSnackBar('Fehler beim Laden der Kinder');
+        },
+      });
+  }
 }

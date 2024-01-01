@@ -4,12 +4,12 @@ import { HttpClientModule } from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { DashboardComponent } from './dashboard/dashboard.component';
-import { DataComponent } from './dashboard/data/data.component';
-import { AddDataComponent } from './dashboard/add-data/add-data.component';
+import { DashboardComponent } from './dashboard/container/dashboard.component';
+import { DataComponent } from './dashboard/components/data/data.component';
+import { AddDataComponent } from './dashboard/components/add-data/add-data.component';
 import { HeaderComponent } from './header/header.component';
-import { ButtonComponent } from './dashboard/button/button.component';
-import { PaginationPipe } from './dashboard/data/pagination.pipe';
+import { ButtonComponent } from './dashboard/components/button/button.component';
+import { PaginationPipe } from './dashboard/components/data/pagination.pipe';
 import { MatInputModule } from '@angular/material/input';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import {
@@ -30,6 +30,7 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatDialogModule } from '@angular/material/dialog';
 import { ConfirmationDialogComponent } from './shared/components/confirmation-dialog/confirmation-dialog.component';
 import { MatTooltipModule } from '@angular/material/tooltip';
+import { FilterComponent } from './dashboard/components/filter/filter.component';
 
 @NgModule({
   declarations: [
@@ -41,6 +42,7 @@ import { MatTooltipModule } from '@angular/material/tooltip';
     ButtonComponent,
     PaginationPipe,
     ConfirmationDialogComponent,
+    FilterComponent,
   ],
   imports: [
     BrowserModule,

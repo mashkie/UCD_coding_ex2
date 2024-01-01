@@ -1,0 +1,30 @@
+<div class="filter">
+  <mat-form-field class="filter__select">
+    <mat-label>Filter nach Kindergarten</mat-label>
+    <mat-select  [(ngModel)]="selectedKindergarden">
+      <mat-option
+        *ngFor="let kindergarden of kindergardens"
+        [value]="kindergarden"
+      >
+        {{ kindergarden.name }}, {{ kindergarden.address }}
+        <hr />
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+  <button
+    class="filter__submit"
+    mat-raised-button
+    color="primary"
+    (click)="applyFilter()"
+  >
+    Filter
+  </button>
+  <button
+    class="filter__reset"
+    mat-raised-button
+    color="warn"
+    (click)="resetFilter()"
+  >
+    Reset
+  </button>
+</div>

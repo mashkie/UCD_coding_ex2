@@ -1,8 +1,21 @@
 <div class="data">
-<!--  <div class="spinner-shade">-->
-<!--    <mat-spinner *ngIf="!storeService.isLoading"></mat-spinner>-->
-<!--  </div>-->
-  <table mat-table [dataSource]="storeService.children" class="mat-elevation-z8">
+  <!--  <div class="spinner-shade">-->
+  <!--    <mat-spinner *ngIf="storeService.isLoading"></mat-spinner>-->
+  <!--  </div>-->
+  <app-filter
+    [kindergardens]="storeService.kindergardens"
+    (filterSelected)="onFilterSelected($event)"
+    (resetFilterValue)="onResetFilter()"
+  ></app-filter>
+  <table
+    mat-table
+    [dataSource]="storeService.children"
+    class="mat-elevation-z8"
+    matSort
+    matSortActive="name"
+    matSortDisableClear
+    matSortDirection="desc"
+  >
     <ng-container matColumnDef="name">
       <th mat-header-cell *matHeaderCellDef>Name</th>
       <td mat-cell *matCellDef="let element">{{ element.name }}</td>
@@ -11,7 +24,9 @@
     <!-- Name Column -->
     <ng-container matColumnDef="kindergarden">
       <th mat-header-cell *matHeaderCellDef>Kindergarten</th>
-      <td mat-cell *matCellDef="let element">{{ element.kindergarden.name }}</td>
+      <td mat-cell *matCellDef="let element">
+        {{ element.kindergarden.name }}
+      </td>
     </ng-container>
 
     <!-- Weight Column -->
@@ -24,7 +39,9 @@
 
     <ng-container matColumnDef="age">
       <th mat-header-cell *matHeaderCellDef>Alter</th>
-      <td mat-cell *matCellDef="let element">{{ getAge(element.birthDate) }}</td>
+      <td mat-cell *matCellDef="let element">
+        {{ getAge(element.birthDate) }}
+      </td>
     </ng-container>
 
     <ng-container matColumnDef="birthday">

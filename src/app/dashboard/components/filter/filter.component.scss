@@ -1,0 +1,19 @@
+.filter {
+  display: flex;
+  &__select {
+    margin-right: 8px;
+    width: 80%;
+  }
+
+  &__submit {
+    margin-top: 10px;
+    margin-right: 8px;
+    width: 10%;
+  }
+
+  &__reset {
+    margin-top: 10px;
+    margin-right: 8px;
+    width: 10%;
+  }
+}

@@ -9,7 +9,7 @@ import {
 import { BackendService } from 'src/app/shared/services/backend.service';
 import { StoreService } from 'src/app/shared/services/store.service';
 import { MatDialog } from '@angular/material/dialog';
-import { ConfirmationDialogComponent } from '../../shared/components/confirmation-dialog/confirmation-dialog.component';
+import { ConfirmationDialogComponent } from '../../../shared/components/confirmation-dialog/confirmation-dialog.component';
 import { Subscription } from 'rxjs';
 
 @Component({
