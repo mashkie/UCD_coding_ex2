@@ -1,21 +1,12 @@
-button.active {
-  background-color: orange;
-}
-
 .data {
   max-width: 70%;
   margin: 0 auto;
+  &__paginator {
+    margin-top: 1rem;
+  }
+  &__spinner {
+    margin: 0 auto;
+    display: block;
+  }
 }
 
-.spinner-shade {
-  position: absolute;
-  top: 0;
-  left: 0;
-  bottom: 56px;
-  right: 0;
-  background: rgba(0, 0, 0, 0.15);
-  z-index: 1;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}

@@ -1,0 +1,6 @@
+<div *ngFor="let kindergarden of kindergardens">
+  <app-kindergarden-item
+    [kindergarden]="kindergarden"
+    (navigatedToDetailView)="onNavigatedToDetails($event)"
+  ></app-kindergarden-item>
+</div>

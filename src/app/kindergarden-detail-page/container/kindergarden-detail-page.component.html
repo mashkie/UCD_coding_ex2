@@ -1,0 +1,14 @@
+<div class="kindergarden" *ngIf="storeService.kindergardens.length > 0">
+  <h1>{{ setTitle(storeService.kindergardens) }}</h1>
+  <div class="kindergarden__info">
+    <img
+      [src]=setImage(storeService.kindergardens)
+      alt="Image of the kindergarden"
+    />
+    <div>
+      <p>Typ: {{ Typ[setType(storeService.kindergardens)] }}</p>
+      <p>Adresse: {{ setAddress(storeService.kindergardens) }}</p>
+      <p>Betreiber: {{ setOwner(storeService.kindergardens) }}</p>
+    </div>
+  </div>
+</div>

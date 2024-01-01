@@ -1,0 +1,25 @@
+<mat-card class="kindergarden-card">
+  <mat-card-header>
+    <mat-card-title>{{ kindergarden.name }}</mat-card-title>
+    <mat-card-subtitle>{{ Typ[kindergarden.typ] }}</mat-card-subtitle>
+  </mat-card-header>
+  <img
+    mat-card-image
+    [src]=kindergarden.imgPath
+    alt="Photo of the kindergarten with the name {{ kindergarden.name }}"
+  />
+  <mat-card-content>
+    <p><span>Adresse:</span> {{ kindergarden.address }}</p>
+    <p><span>Betreiber:</span> {{ kindergarden.betreiber }}</p>
+  </mat-card-content>
+  <mat-card-actions>
+    <button
+      (click)="navigateToDetailView(kindergarden.id)"
+      mat-raised-button
+      color="primary"
+      mat-button
+    >
+      Ansehen
+    </button>
+  </mat-card-actions>
+</mat-card>

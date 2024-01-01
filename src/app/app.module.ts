@@ -13,10 +13,17 @@ import { PaginationPipe } from './dashboard/components/data/pagination.pipe';
 import { MatInputModule } from '@angular/material/input';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import {
+  DateAdapter,
+  MAT_DATE_FORMATS,
   MAT_DATE_LOCALE,
   MatNativeDateModule,
   MatOptionModule,
 } from '@angular/material/core';
+import {
+  MAT_MOMENT_DATE_FORMATS,
+  MomentDateAdapter,
+  MAT_MOMENT_DATE_ADAPTER_OPTIONS,
+} from '@angular/material-moment-adapter';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatSelectModule } from '@angular/material/select';
 import { MatButtonModule } from '@angular/material/button';
@@ -31,6 +38,12 @@ import { MatDialogModule } from '@angular/material/dialog';
 import { ConfirmationDialogComponent } from './shared/components/confirmation-dialog/confirmation-dialog.component';
 import { MatTooltipModule } from '@angular/material/tooltip';
 import { FilterComponent } from './dashboard/components/filter/filter.component';
+import { MatSortModule } from '@angular/material/sort';
+import { KindergardenPageComponent } from './kindergarden-page/container/kindergarden-page.component';
+import { KindergardenListComponent } from './kindergarden-page/components/kindergarden-list/kindergarden-list.component';
+import { KindergardenItemComponent } from './kindergarden-page/components/kindergarden-item/kindergarden-item.component';
+import { KindergardenDetailPageComponent } from './kindergarden-detail-page/container/kindergarden-detail-page.component';
+import { MatCardModule } from '@angular/material/card';
 
 @NgModule({
   declarations: [
@@ -43,6 +56,10 @@ import { FilterComponent } from './dashboard/components/filter/filter.component'
     PaginationPipe,
     ConfirmationDialogComponent,
     FilterComponent,
+    KindergardenPageComponent,
+    KindergardenListComponent,
+    KindergardenItemComponent,
+    KindergardenDetailPageComponent,
   ],
   imports: [
     BrowserModule,
@@ -52,6 +69,7 @@ import { FilterComponent } from './dashboard/components/filter/filter.component'
     ReactiveFormsModule,
     MatInputModule,
     MatDatepickerModule,
+    MatCardModule,
     MatNativeDateModule,
     BrowserAnimationsModule,
     MatSelectModule,
@@ -66,8 +84,17 @@ import { FilterComponent } from './dashboard/components/filter/filter.component'
     MatIconModule,
     MatDialogModule,
     MatTooltipModule,
+    MatSortModule,
   ],
-  providers: [{ provide: MAT_DATE_LOCALE, useValue: 'de-DE' }],
+  providers: [
+    { provide: MAT_DATE_LOCALE, useValue: 'de-DE' },
+    {
+      provide: DateAdapter,
+      useClass: MomentDateAdapter,
+      deps: [MAT_DATE_LOCALE, MAT_MOMENT_DATE_ADAPTER_OPTIONS],
+    },
+    { provide: MAT_DATE_FORMATS, useValue: MAT_MOMENT_DATE_FORMATS },
+  ],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

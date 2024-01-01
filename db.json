@@ -1,22 +1,88 @@
 {
   "childs": [
     {
-      "name": "this is my child 1",
+      "name": "1",
       "kindergardenId": 1,
       "birthDate": "2020-01-05T23:00:00.000Z",
+      "registeredDate": "2023-10-03T13:01:52.001Z",
       "id": 1
     },
     {
-      "name": "this is my child 3",
+      "name": "2",
       "kindergardenId": 3,
       "birthDate": "2020-01-05T23:00:00.000Z",
+      "registeredDate": "2023-06-04T13:01:52.001Z",
       "id": 3
     },
     {
-      "name": "This is my child",
+      "name": "3",
       "kindergardenId": 5,
       "birthDate": "2020-11-10T23:00:00.000Z",
+      "registeredDate": "2023-02-12T13:01:52.001Z",
       "id": 4
+    },
+    {
+      "name": "4",
+      "kindergardenId": 4,
+      "birthDate": "2020-11-18T23:00:00.000Z",
+      "registeredDate": "2024-01-01T13:01:52.001Z",
+      "id": 5
+    },
+    {
+      "name": "5",
+      "kindergardenId": 5,
+      "birthDate": "2020-10-20T22:00:00.000Z",
+      "registeredDate": "2024-01-01T13:13:03.784Z",
+      "id": 6
+    },
+    {
+      "name": "6",
+      "kindergardenId": 4,
+      "birthDate": "2020-08-17T22:00:00.000Z",
+      "registeredDate": "2024-01-01T13:13:43.633Z",
+      "id": 7
+    },
+    {
+      "name": "7",
+      "kindergardenId": 3,
+      "birthDate": "2020-12-16T23:00:00.000Z",
+      "registeredDate": "2024-01-01T13:14:02.822Z",
+      "id": 8
+    },
+    {
+      "name": "8",
+      "kindergardenId": 2,
+      "birthDate": "2020-07-20T22:00:00.000Z",
+      "registeredDate": "2024-01-01T13:14:25.181Z",
+      "id": 9
+    },
+    {
+      "name": "9",
+      "kindergardenId": 5,
+      "birthDate": "2021-02-08T23:00:00.000Z",
+      "registeredDate": "2024-01-04T09:50:31.606Z",
+      "id": 10
+    },
+    {
+      "name": "aaa",
+      "kindergardenId": 2,
+      "birthDate": "2020-06-17T22:00:00.000Z",
+      "registeredDate": "2024-01-04T12:38:14.645Z",
+      "id": 11
+    },
+    {
+      "name": "bbb",
+      "kindergardenId": 3,
+      "birthDate": "2020-06-08T22:00:00.000Z",
+      "registeredDate": "2024-01-04T12:38:36.141Z",
+      "id": 12
+    },
+    {
+      "name": "aaa",
+      "kindergardenId": 2,
+      "birthDate": "2020-12-12T23:00:00.000Z",
+      "registeredDate": "2024-01-04T13:14:02.520Z",
+      "id": 13
     }
   ],
   "kindergardens": [
@@ -25,6 +91,7 @@
       "name": "Waldorfkindergarden im Zentrum Wiens",
       "address": "Oleandergasse 21, 1220 Wien",
       "betreiber": "MA 10 - Wiener Kindergärten",
+      "imgPath": "assets/images/waldorf.jpg",
       "typ": 1
     },
     {
@@ -32,6 +99,7 @@
       "name": "Kindergarden der Karl Schubert Schule für seelenpflegebedürftige Kinder und Jugendliche in Wien",
       "address": "Kanitzgasse 1-3, 1230 Wien",
       "betreiber": "Verein Karl Schubertschule für Seelenpflege- bedürftige Kinder und Jugendliche in Wien",
+      "imgPath": "assets/images/karl_shubert.png",
       "typ": 1
     },
     {
@@ -39,6 +107,7 @@
       "name": "Kindergarden der Stadt Wien",
       "address": "Audorfgasse 20, 1210 Wien",
       "betreiber": "MA 10 - Wiener Kindergärten",
+      "imgPath": "assets/images/kinder_audorf.png",
       "typ": 2
     },
     {
@@ -46,6 +115,7 @@
       "name": "Kindergarden der Stadt Wien",
       "address": "Moßbachergasse 20-24, 1140 Wien",
       "betreiber": "MA 10 - Wiener Kindergärten",
+      "imgPath": "assets/images/wien_logo.jpg",
       "typ": 2
     },
     {
@@ -53,6 +123,7 @@
       "name": "Montessori Kinderhaus Wien 1",
       "address": "Nußdorferstraße 6, 1090 Wien",
       "betreiber": "Montessori Kinderhaus Wien",
+      "imgPath": "assets/images/montessori_1.jpg",
       "typ": 1
     }
   ]

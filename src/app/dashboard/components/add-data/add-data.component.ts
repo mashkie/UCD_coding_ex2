@@ -11,6 +11,8 @@ import { StoreService } from 'src/app/shared/services/store.service';
 import { MatDialog } from '@angular/material/dialog';
 import { ConfirmationDialogComponent } from '../../../shared/components/confirmation-dialog/confirmation-dialog.component';
 import { Subscription } from 'rxjs';
+import { SortEvent } from '../../../shared/interfaces/SortEvent';
+import { MAT_DATE_LOCALE } from '@angular/material/core';
 
 @Component({
   selector: 'app-add-data',
@@ -30,6 +32,7 @@ export class AddDataComponent implements OnInit, OnDestroy {
 
   public addChildForm: any;
   @Input() currentPage!: number;
+  @Input() sort!: SortEvent;
 
   ngOnInit(): void {
     this.buildChildForm();
@@ -68,8 +71,12 @@ export class AddDataComponent implements OnInit, OnDestroy {
       this.subscription = dialogRef.afterClosed().subscribe((result) => {
         if (result) {
           this.backendService.addChildData(
-            this.addChildForm.value,
+            {
+              ...this.addChildForm.value,
+              registeredDate: new Date(),
+            },
             this.currentPage,
+            this.sort,
           );
           this.resetForm();
         }

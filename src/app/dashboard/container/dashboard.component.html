@@ -2,7 +2,15 @@
   <app-data
     class="dashboard__app-data"
     [currentPage]="currentPage"
+    [pageSize]="pageSize"
+    [pageCount]="getPageCount()"
+    [sortValues]="sort"
+    [isLoading]="storeService.isLoading"
+    (canceledEvent)="onRegistrationCanceled($event)"
     (selectPageEvent)="receiveMessage($event)"
+    (sortedEvent)="sortTable($event)"
+    (filterEvent)="filterTable($event)"
+    (resetFilterEvent)="resetFilter()"
   ></app-data>
   <br />
   <app-button
@@ -14,5 +22,6 @@
     class="dashboard__app-add-data"
     *ngIf="showAddData"
     [currentPage]="currentPage"
+    [sort]="sort"
   ></app-add-data>
 </div>

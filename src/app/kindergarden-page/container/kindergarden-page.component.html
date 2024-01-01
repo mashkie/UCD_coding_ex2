@@ -1,0 +1,6 @@
+<div *ngIf="storeService.kindergardens.length > 0">
+  <app-kindergarden-list
+    [kindergardens]="storeService.kindergardens"
+    (navigatedToDetailView)="navigateToDetails($event)"
+  ></app-kindergarden-list>
+</div>
